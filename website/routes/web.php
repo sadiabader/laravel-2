@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\customcontroler;
 use App\Http\Controllers\singleAction;
+use App\Http\Controllers\Form;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,10 +35,14 @@ use App\Http\Controllers\singleAction;
 // Route::get('/about', [customcontroller::class,'about']);
 // Route::get('/contact', [customcontroller::class,'contact']);
 
-Route::controller(customcontroler::class)->group(function(){
-    Route::get('/{name}/{id?}', 'home')->name('home');
-    // Route::get('/welcome', 'home')->name('home');
-    Route::get('/about', 'about')->name('about');
-    // Route::get('/contact', 'contact')->name('contact');
-});
-Route::get('/contact', singleAction::class)->name('contact');
+// Route::controller(customcontroler::class)->group(function(){
+//     Route::get('/{name}/{id?}', 'home')->name('home');
+//     // Route::get('/welcome', 'home')->name('home');
+//     Route::get('/about', 'about')->name('about');
+//     // Route::get('/contact', 'contact')->name('contact');
+// });
+// Route::get('/contact', singleAction::class)->name('contact');
+
+Route::get('/register',[Form::class, 'register']);
+Route::post('/register',[Form::class, 'register']);
+
